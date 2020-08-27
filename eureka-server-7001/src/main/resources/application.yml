@@ -1,0 +1,17 @@
+server:
+  port: 7001
+
+eureka:
+  instance:
+    hostname: eureka-server-7001
+  server:
+    enable-self-preservation: false #关闭自我保护机制，在三次心跳后立即删除未发送心跳的服务，不再保留
+  client:
+    #不向注册中心注册自己
+    register-with-eureka: false
+    #标识自己就是注册中心，职责是维护实例，并不需要检索服务
+    fetch-registry: false
+    service-url:
+      #地址查询服务和注册服务都需要依赖这个地址
+      #defaultZone: http://eureka-server-7002:7002/eureka/ #集群指向其他
+      defaultZone: http://eureka-server-7001:7001/eureka/ #单机版指向自己
