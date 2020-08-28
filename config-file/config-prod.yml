@@ -1,2 +1,3 @@
 config:
   info: prod-info
+  version: 1
