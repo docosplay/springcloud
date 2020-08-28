@@ -1,20 +1,25 @@
 server:
-  port: 3344
+  port: 3366
 spring:
   application:
-    name: config-center
+    name: config
   cloud:
+    #读取 {application-name}-{profile}.yml
     config:
-      server:
-        git:
-          uri: https://github.com/docosplay/springcloud/
-          search-paths: config-file
+      profile: dev
       label: master
+      uri: http://localhost:3344
   rabbitmq:
     host: 192.168.32.188
     port: 5672 #15672是界面，5672是实际连接端口
     username: guest
     password: guest
+# 暴露监控接口，使用/actuator/refresh 刷新配置。使用* 访问不到
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
 eureka:
   client:
     #向注册中心注册自己
@@ -25,9 +30,3 @@ eureka:
       #defaultZone: http://eureka-server-7001:7001/eureka/,http://eureka-server-7002:7002/eureka/ #集群版
       #地址查询服务和注册服务都需要依赖这个地址
       defaultZone: http://eureka-server-7001:7001/eureka/  #单机版
-# 暴露监控接口，使用/actuator/refresh 刷新配置。使用* 访问不到
-management:
-  endpoints:
-    web:
-      exposure:
-        include: bus-refresh

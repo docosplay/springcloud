@@ -5,6 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.config.server.EnableConfigServer;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
+/**
+ * 已集成bus&rabbitmq，调用 curl -X POST "localhost:3344/actuator/bus-refresh" 命令刷新
+ * 想定点通知的话，可以使用 curl -X POST "localhost:3344/actuator/bus-refresh/config:3355"
+ */
 @SpringBootApplication
 @EnableConfigServer
 @EnableEurekaClient
