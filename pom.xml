@@ -28,6 +28,11 @@
         <module>config-client-3355</module>
         <module>config-client-3355</module>
         <module>config-client-3366</module>
+        <module>cloud-stream-mq-provider-8801</module>
+        <module>cloud-stream-mq-consumer-8802</module>
+        <module>cloud-stream-mq-consumer-8803</module>
+        <module>cloud-sleuth-service-8571</module>
+        <module>cloud-sleuth-service-8570</module>
     </modules>
 
     <properties>
